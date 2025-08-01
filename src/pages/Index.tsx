@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -22,6 +23,7 @@ interface CSCase {
 }
 
 const Index = () => {
+  const navigate = useNavigate();
   const [inventory, setInventory] = useState<CSSkin[]>([]);
   const [isOpening, setIsOpening] = useState<string | null>(null);
   const [openedItem, setOpenedItem] = useState<CSSkin | null>(null);
@@ -45,9 +47,9 @@ const Index = () => {
 
   const cases: CSCase[] = [
     {
-      id: '1',
+      id: 'neon-dreams',
       name: 'Neon Dreams Case',
-      image: '/img/2d18d296-1d92-44dd-9fc0-bc0b64ba26fe.jpg',
+      image: '/img/575142d6-0a14-45c7-95ad-e791d1fec2b7.jpg',
       price: 50,
       items: [
         { id: '1', name: 'AK-47 | Neon Revolution', rarity: 'legendary', image: '/img/50facf71-288e-4a72-7d7d-72b85e051c41.jpg', price: 500 },
@@ -58,9 +60,9 @@ const Index = () => {
       ]
     },
     {
-      id: '2',
+      id: 'cyber-collection',
       name: 'Cyber Collection',
-      image: '/img/2d18d296-1d92-44dd-9fc0-bc0b64ba26fe.jpg',
+      image: '/img/575142d6-0a14-45c7-95ad-e791d1fec2b7.jpg',
       price: 75,
       items: [
         { id: '6', name: 'Butterfly Knife | Code Red', rarity: 'legendary', image: '/img/b939b035-5a5e-4a2e-a38d-595557f1aa88.jpg', price: 1200 },
@@ -159,18 +161,10 @@ const Index = () => {
                           ${caseItem.price}
                         </Badge>
                         <Button 
-                          onClick={() => openCase(caseItem)}
-                          disabled={balance < caseItem.price || isOpening === caseItem.id}
+                          onClick={() => navigate(`/case/${caseItem.id}`)}
                           className="w-full bg-gradient-to-r from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-pink"
                         >
-                          {isOpening === caseItem.id ? (
-                            <>
-                              <Icon name="Loader2" size={16} className="mr-2 animate-spin" />
-                              Открываем...
-                            </>
-                          ) : (
-                            'Открыть кейс'
-                          )}
+                          Открыть кейс
                         </Button>
                       </div>
                     </CardContent>
