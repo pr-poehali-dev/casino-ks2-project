@@ -96,6 +96,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gaming-dark text-foreground;
+    font-family: "Roboto", sans-serif;
   }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap");
+
+.neon-glow {
+  text-shadow: 0 0 10px currentColor;
 }

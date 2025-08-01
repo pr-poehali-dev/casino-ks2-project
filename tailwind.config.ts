@@ -19,6 +19,17 @@ export default {
 		},
 		extend: {
 			colors: {
+				neon: {
+					pink: '#FF6B9D',
+					cyan: '#00FFFF',
+					purple: '#9B87F5',
+					green: '#00FF7F'
+				},
+				gaming: {
+					dark: '#0F0F0F',
+					gray: '#1A1A1A',
+					card: '#1F1F1F'
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -84,11 +95,28 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow': {
+					'0%': { boxShadow: '0 0 5px currentColor' },
+					'100%': { boxShadow: '0 0 20px currentColor, 0 0 30px currentColor' }
+				},
+				'case-open': {
+					'0%': { transform: 'rotateY(0deg) scale(1)' },
+					'50%': { transform: 'rotateY(180deg) scale(1.1)' },
+					'100%': { transform: 'rotateY(360deg) scale(1)' }
+				},
+				'item-reveal': {
+					'0%': { opacity: '0', transform: 'scale(0) rotate(180deg)' },
+					'100%': { opacity: '1', transform: 'scale(1) rotate(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow': 'glow 2s ease-in-out infinite alternate',
+				'spin-slow': 'spin 3s linear infinite',
+				'case-open': 'case-open 1.5s ease-out',
+				'item-reveal': 'item-reveal 0.8s ease-out 1.5s both'
 			}
 		}
 	},
